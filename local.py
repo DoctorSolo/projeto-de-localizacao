@@ -1,7 +1,9 @@
+import folium.map
 from geopy.geocoders import Nominatim  # Vou utilizar um metodo do geopy para me retornar a localização
+import folium
 
 class Local:
-    geolocator = Nominatim(user_agent="my_app") # A biblioteca exirge uma instancia para acessar o banco de dados
+    geolocator = Nominatim(user_agent="local") # A biblioteca exirge uma instancia para acessar o banco de dados
     
     # O construtor recebe os paremetros x(latitude) e y(longetude),
     # Os parametros já são definidos para converter qualquer tipo para (float) para evitar erro
@@ -20,4 +22,15 @@ class Local:
             location = self.geolocator.reverse(f"{self.latitude}, {self.longitude}")
             return location.address
         except:
-            return None
+            return 'A localização não existe'
+        
+    
+    def mapa(self):
+        #return 'imagens/nao_encontrado.png'
+        try:
+            m = folium.map([self.latitude, self.longitude], zoom_start = 12)
+            folium.Marker([self.latitude, self.longitude], popup="Localização").add_to(m)
+            m.save("imagens/Local.html")
+            return "imagens/Local.html"
+        except:
+            return "imagens/nao_encontrado.png"

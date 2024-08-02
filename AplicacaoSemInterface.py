@@ -11,9 +11,6 @@ coordenada = []
 for x in range(2):
     coordenada.append(entrada[x])
 
-# crio uma instancia e insiro a cordenada no objeto
-local1 = Local(coordenada[0], coordenada[1])
+local0 = Local(coordenada[0], coordenada[1])
 
-print(local1)
-print(entrada)
-print(local1.pesquisa())
+print(local0.pesquisa())
