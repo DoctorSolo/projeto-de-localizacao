@@ -48,3 +48,14 @@ Supondo que a cordenada escolhida seje `48.858844, 2.294351`, a saída vai ser `
 
 <h3 align=center>Contato</h3>
 
+<div align="center" style = "display: inline_block">
+      <a title="GitHub"   target="_blank"             href  = "https://github.com/DoctorSolo" >
+        <img alt="GitHub Profile" height="40" width="40" align="center" src = "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" />
+      </a>
+			<a title="intagram"	target="_blank"							href	= "https://www.instagram.com/miguel_e303/" >
+				<img alt="Intagram	Profile"	height="40" width="40" align="center"	src	= "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png"/>
+			</a>
+			<a title="Discord" 	target="_blank" 						href 	= "https://discord.com/channels/@me/1242529222862573741" >
+		                <img alt="Discord	Profile"	height="40" width="40" align="center" 	src 	= "https://github.com/DoutorSolo/DoutorSolo/assets/132822901/ec819b38-d12c-4c49-9ab3-d48ef3f4a6a7"/> 
+			</a>
+		</div>
