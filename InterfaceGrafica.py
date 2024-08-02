@@ -1,5 +1,6 @@
 from tkinter    import *
 from Local      import Local
+import webview  # Escolhi esta biblioteca pois é fiel a html e facil de usar
 
 # Vou implementar os valores atravez de uma interface grafica
 class InterfaceGrafica:
@@ -21,6 +22,7 @@ class InterfaceGrafica:
             return False
 
 
+    # Este metodo é o mais importante da (classe), é aqui que fica as configurações da interface
     def Interface(self):
         janela = Tk()   # Crio aqui a janenela
         janela.title("Buscar Localização")
@@ -28,10 +30,11 @@ class InterfaceGrafica:
         # Atributo para a validade da entrada, se numero ou letra
         validade = (janela.register(self.validade_numero), '%P')
 
-        # Para entrada da latitude
+        # guia de uso
         titulo = Label(janela, text="Digite em baixo o valor das cordenada", pady=10)
         titulo.grid(column=0,row=0)
 
+        # Para entrada da latitude
         txt_latitude = Label(janela, text="Informe aqui o valor da latitude: ")
         txt_latitude.grid(column=0, row=1)
 
@@ -52,23 +55,18 @@ class InterfaceGrafica:
         
         
         # Resultado no mapa
-        def resultado_mapa(local_img='imagens/nao_encontrado.png'):
-            img = PhotoImage(file=local_img)
-            mapa = Label(janela, image=img, padx=20, pady=20)
-            mapa.image = img
-            mapa.grid(column=3,row=5)
+        def resultado_mapa(local_img='imagens/nao_encontrado.html'):
+            visual_map = webview.create_window("visual map", local_img)
+            webview.start()
 
         
-        resultado_mapa()
-        
-
         # Para o botão
         def insere_valor():
-            lat     = float(entrada_latitude.get())
-            long    = float(entrada_longitude.get())
-            local0 = Local(lat, long)
-            resultado_mapa(local0.mapa())
-            saida["text"] = local0.pesquisa()
+            lat     = float(entrada_latitude.get())     #   A variavel [lat] e [long] vão coletar
+            long    = float(entrada_longitude.get())    #   os valores de entrada da interface.
+            local0 = Local(lat, long)                   #   A classe Local recebe seus valores aqui.
+            resultado_mapa(local0.mapa())               #   Caso exista o local, map() ira retornar um arquivo HTML
+            saida["text"] = local0.pesquisa()           #   Informa qual é o local ou se não existe
 
 
         enter = Button(janela, text="ENTER", command=insere_valor)
