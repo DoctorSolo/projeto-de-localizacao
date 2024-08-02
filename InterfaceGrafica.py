@@ -30,9 +30,13 @@ class InterfaceGrafica:
         # Atributo para a validade da entrada, se numero ou letra
         validade = (janela.register(self.validade_numero), '%P')
 
-        # guia de uso
+        # Para deixa a janela mais bonita e dinamica
         titulo = Label(janela, text="Digite em baixo o valor das cordenada", pady=10)
         titulo.grid(column=0,row=0)
+        
+        img = PhotoImage(file="imagens/lupa.png")
+        imagem_dec = Label(image=img)
+        imagem_dec.grid(column=2, row=5,padx=10, pady=10)
 
         # Para entrada da latitude
         txt_latitude = Label(janela, text="Informe aqui o valor da latitude: ")
