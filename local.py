@@ -1,4 +1,3 @@
-import folium.map
 from geopy.geocoders import Nominatim  # Vou utilizar um metodo do geopy para me retornar a localização
 import folium
 
@@ -28,7 +27,7 @@ class Local:
     def mapa(self):
         #return 'imagens/nao_encontrado.png'
         try:
-            m = folium.map([self.latitude, self.longitude], zoom_start = 12)
+            m = folium.Map([self.latitude, self.longitude], zoom_start = 12)
             folium.Marker([self.latitude, self.longitude], popup="Localização").add_to(m)
             m.save("imagens/Local.html")
             return "imagens/Local.html"
